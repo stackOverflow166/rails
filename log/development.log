@@ -1,0 +1,1128 @@
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateActiveStorageTables (20181029173325)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "byte_size" bigint NOT NULL, "checksum" varchar NOT NULL, "created_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181029173325_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  ↳ db/migrate/20181029173325_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" integer NOT NULL, "blob_id" integer NOT NULL, "created_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181029173325_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  ↳ db/migrate/20181029173325_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/migrate/20181029173325_create_active_storage_tables.active_storage.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181029173325"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreatePosts (20181029174224)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20181029174224_create_posts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181029174224"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-10 16:57:25.367323"], ["updated_at", "2018-11-10 16:57:25.367323"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-11-11 01:22:04 +0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (4.1ms)
+Completed 200 OK in 33ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-11-11 01:26:06 +0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (39.7ms)
+  Rendered posts/new.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 1852ms (Views: 1824.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-11-11 01:32:32 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mV2pZDlH0WHw5TREf93EN1JlnTEww60o1gl5VN0uwx86KotOFlUUXYfwVNMiq5jVoZ/KvWoKeFs/qtMKtME4hw==", "post"=>{"title"=>"", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007ffe84a3d718 @tempfile=#<Tempfile:/var/folders/tx/6k9dn6851554pl4b1jtvfsk00000gn/T/RackMultipart20181111-52681-7rr7nr.html>, @original_filename="index.html", @content_type="text/html", @headers="Content-Disposition: form-data; name=\"post[video]\"; filename=\"index.html\"\r\nContent-Type: text/html\r\n">}, "commit"=>"Create Post"}
+[36m  Disk Storage (2.0ms) [0m[32mUploaded file to key: sGQz3VU93Xc5mNq6ppNdmWqb (checksum: 1vuuXfJ0aq2n/NhSgKjQrQ==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[36mActiveStorage::Blob Create (1.7ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "sGQz3VU93Xc5mNq6ppNdmWqb"], ["filename", "index.html"], ["content_type", "text/html"], ["metadata", "{\"identified\":true}"], ["byte_size", 5686], ["checksum", "1vuuXfJ0aq2n/NhSgKjQrQ=="], ["created_at", "2018-11-10 17:32:32.432583"]]
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", ""], ["created_at", "2018-11-10 17:32:32.452158"], ["updated_at", "2018-11-10 17:32:32.452158"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mActiveStorage::Attachment Create (1.0ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "video"], ["record_type", "Post"], ["record_id", 1], ["blob_id", 1], ["created_at", "2018-11-10 17:32:32.455067"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Update (0.2ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2018-11-10 17:32:32.457496"], ["id", 1]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: be88c161-5450-43c0-aab0-c83f3cda5db9) to Async(default) with arguments: #<GlobalID:0x00007ffe89a59a58 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/1>>
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 274ms (ActiveRecord: 7.8ms)
+
+
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [be88c161-5450-43c0-aab0-c83f3cda5db9] Performing ActiveStorage::AnalyzeJob (Job ID: be88c161-5450-43c0-aab0-c83f3cda5db9) from Async(default) with arguments: #<GlobalID:0x00007ffe88f5fcb0 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [be88c161-5450-43c0-aab0-c83f3cda5db9]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [be88c161-5450-43c0-aab0-c83f3cda5db9]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [be88c161-5450-43c0-aab0-c83f3cda5db9]   [1m[36mActiveStorage::Blob Update (0.5ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [be88c161-5450-43c0-aab0-c83f3cda5db9]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [be88c161-5450-43c0-aab0-c83f3cda5db9]   [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [be88c161-5450-43c0-aab0-c83f3cda5db9]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [be88c161-5450-43c0-aab0-c83f3cda5db9] Performed ActiveStorage::AnalyzeJob (Job ID: be88c161-5450-43c0-aab0-c83f3cda5db9) from Async(default) in 5.01ms
+Started GET "/posts/1" for 127.0.0.1 at 2018-11-11 01:32:32 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (4265.7ms)
+Completed 200 OK in 4307ms (Views: 4300.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--528be5f7831fb692f60c52f3a6740a6483565a7f/index.html" for 127.0.0.1 at 2018-11-11 01:32:36 +0800
+Processing by ActiveStorage::BlobsController#show as HTML
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--528be5f7831fb692f60c52f3a6740a6483565a7f", "filename"=>"index"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (8.4ms) [0m[34mGenerated URL for file at key: sGQz3VU93Xc5mNq6ppNdmWqb (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF6UjFGNk0xWlZPVE5ZWXpWdFRuRTJjSEJPWkcxWGNXSUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6Mzc6MzcuMDA2WiIsInB1ciI6ImJsb2Jfa2V5In19--338359f12c5190618ace61ed9af3dc5e93606d74/index.html?content_type=text%2Fhtml&disposition=attachment%3B+filename%3D%22index.html%22%3B+filename%2A%3DUTF-8%27%27index.html)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF6UjFGNk0xWlZPVE5ZWXpWdFRuRTJjSEJPWkcxWGNXSUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6Mzc6MzcuMDA2WiIsInB1ciI6ImJsb2Jfa2V5In19--338359f12c5190618ace61ed9af3dc5e93606d74/index.html?content_type=text%2Fhtml&disposition=attachment%3B+filename%3D%22index.html%22%3B+filename%2A%3DUTF-8%27%27index.html
+Completed 302 Found in 14ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF6UjFGNk0xWlZPVE5ZWXpWdFRuRTJjSEJPWkcxWGNXSUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6Mzc6MzcuMDA2WiIsInB1ciI6ImJsb2Jfa2V5In19--338359f12c5190618ace61ed9af3dc5e93606d74/index.html?content_type=text%2Fhtml&disposition=attachment%3B+filename%3D%22index.html%22%3B+filename%2A%3DUTF-8%27%27index.html" for 127.0.0.1 at 2018-11-11 01:32:37 +0800
+Processing by ActiveStorage::DiskController#show as HTML
+  Parameters: {"content_type"=>"text/html", "disposition"=>"attachment; filename=\"index.html\"; filename*=UTF-8''index.html", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF6UjFGNk0xWlZPVE5ZWXpWdFRuRTJjSEJPWkcxWGNXSUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6Mzc6MzcuMDA2WiIsInB1ciI6ImJsb2Jfa2V5In19--338359f12c5190618ace61ed9af3dc5e93606d74", "filename"=>"index"}
+[36m  Disk Storage (0.3ms) [0m[34mDownloaded file from key: sGQz3VU93Xc5mNq6ppNdmWqb[0m
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-11-11 01:36:59 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mV2pZDlH0WHw5TREf93EN1JlnTEww60o1gl5VN0uwx86KotOFlUUXYfwVNMiq5jVoZ/KvWoKeFs/qtMKtME4hw==", "post"=>{"title"=>"", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007ffe82fb08a0 @tempfile=#<Tempfile:/var/folders/tx/6k9dn6851554pl4b1jtvfsk00000gn/T/RackMultipart20181111-52681-edvkk2.mp4>, @original_filename="test.mp4", @content_type="video/mp4", @headers="Content-Disposition: form-data; name=\"post[video]\"; filename=\"test.mp4\"\r\nContent-Type: video/mp4\r\n">}, "commit"=>"Create Post"}
+[36m  Disk Storage (45.4ms) [0m[32mUploaded file to key: NzxLzzNEEzhV2rH9pe4y3PEQ (checksum: yw78+xNZQh66iWSv3qvu1g==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "NzxLzzNEEzhV2rH9pe4y3PEQ"], ["filename", "test.mp4"], ["content_type", "video/mp4"], ["metadata", "{\"identified\":true}"], ["byte_size", 11745332], ["checksum", "yw78+xNZQh66iWSv3qvu1g=="], ["created_at", "2018-11-10 17:36:59.348460"]]
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", ""], ["created_at", "2018-11-10 17:36:59.354185"], ["updated_at", "2018-11-10 17:36:59.354185"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "video"], ["record_type", "Post"], ["record_id", 2], ["blob_id", 2], ["created_at", "2018-11-10 17:36:59.356668"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2018-11-10 17:36:59.357743"], ["id", 2]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: d025b7f1-604f-4769-baec-c86e64b2f749) to Async(default) with arguments: #<GlobalID:0x00007ffe86e1bc48 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/2>>
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 88ms (ActiveRecord: 4.6ms)
+
+
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d025b7f1-604f-4769-baec-c86e64b2f749] Performing ActiveStorage::AnalyzeJob (Job ID: d025b7f1-604f-4769-baec-c86e64b2f749) from Async(default) with arguments: #<GlobalID:0x00007ffe86eb9a38 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/2>>
+Started GET "/posts/2" for 127.0.0.1 at 2018-11-11 01:36:59 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d025b7f1-604f-4769-baec-c86e64b2f749] [36m  Disk Storage (19.5ms) [0m[34mDownloaded file from key: NzxLzzNEEzhV2rH9pe4y3PEQ[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d025b7f1-604f-4769-baec-c86e64b2f749] Skipping video analysis because ffmpeg isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d025b7f1-604f-4769-baec-c86e64b2f749]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d025b7f1-604f-4769-baec-c86e64b2f749]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d025b7f1-604f-4769-baec-c86e64b2f749]   [1m[36mActiveStorage::Blob Update (0.5ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d025b7f1-604f-4769-baec-c86e64b2f749]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d025b7f1-604f-4769-baec-c86e64b2f749]   [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d025b7f1-604f-4769-baec-c86e64b2f749]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [d025b7f1-604f-4769-baec-c86e64b2f749] Performed ActiveStorage::AnalyzeJob (Job ID: d025b7f1-604f-4769-baec-c86e64b2f749) from Async(default) in 42.83ms
+  Rendered posts/show.html.erb within layouts/application (27.8ms)
+Completed 200 OK in 60ms (Views: 56.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8dcab53ec4fd56035676cc0c3f8e8509ab482093/test.mp4" for 127.0.0.1 at 2018-11-11 01:36:59 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8dcab53ec4fd56035676cc0c3f8e8509ab482093", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: NzxLzzNEEzhV2rH9pe4y3PEQ (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFPZW5oTWVucE9SVVY2YUZZeWNrZzVjR1UwZVROUVJWRUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDE6NTkuNTkyWiIsInB1ciI6ImJsb2Jfa2V5In19--44b5b089b4cafc19b1206dc7a6367674b0ad3e7b/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFPZW5oTWVucE9SVVY2YUZZeWNrZzVjR1UwZVROUVJWRUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDE6NTkuNTkyWiIsInB1ciI6ImJsb2Jfa2V5In19--44b5b089b4cafc19b1206dc7a6367674b0ad3e7b/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 18ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFPZW5oTWVucE9SVVY2YUZZeWNrZzVjR1UwZVROUVJWRUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDE6NTkuNTkyWiIsInB1ciI6ImJsb2Jfa2V5In19--44b5b089b4cafc19b1206dc7a6367674b0ad3e7b/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:36:59 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFPZW5oTWVucE9SVVY2YUZZeWNrZzVjR1UwZVROUVJWRUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDE6NTkuNTkyWiIsInB1ciI6ImJsb2Jfa2V5In19--44b5b089b4cafc19b1206dc7a6367674b0ad3e7b", "filename"=>"test"}
+[36m  Disk Storage (8.3ms) [0m[34mDownloaded file from key: NzxLzzNEEzhV2rH9pe4y3PEQ[0m
+Completed 200 OK in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2018-11-11 01:39:32 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3793.0ms)
+Completed 200 OK in 3824ms (Views: 3817.6ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-11-11 01:39:40 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mV2pZDlH0WHw5TREf93EN1JlnTEww60o1gl5VN0uwx86KotOFlUUXYfwVNMiq5jVoZ/KvWoKeFs/qtMKtME4hw==", "post"=>{"title"=>"", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007ffe88f97de0 @tempfile=#<Tempfile:/var/folders/tx/6k9dn6851554pl4b1jtvfsk00000gn/T/RackMultipart20181111-52681-1xkklc1.mp4>, @original_filename="test.mp4", @content_type="video/mp4", @headers="Content-Disposition: form-data; name=\"post[video]\"; filename=\"test.mp4\"\r\nContent-Type: video/mp4\r\n">}, "commit"=>"Create Post"}
+[36m  Disk Storage (50.9ms) [0m[32mUploaded file to key: qZy46qBdoo5h3XxCBgFVaLtB (checksum: yw78+xNZQh66iWSv3qvu1g==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "qZy46qBdoo5h3XxCBgFVaLtB"], ["filename", "test.mp4"], ["content_type", "video/mp4"], ["metadata", "{\"identified\":true}"], ["byte_size", 11745332], ["checksum", "yw78+xNZQh66iWSv3qvu1g=="], ["created_at", "2018-11-10 17:39:40.609437"]]
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", ""], ["created_at", "2018-11-10 17:39:40.613760"], ["updated_at", "2018-11-10 17:39:40.613760"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "video"], ["record_type", "Post"], ["record_id", 3], ["blob_id", 3], ["created_at", "2018-11-10 17:39:40.615015"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2018-11-10 17:39:40.615930"], ["id", 3]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: db309aa8-3e3b-4a51-a853-9431a496c86e) to Async(default) with arguments: #<GlobalID:0x00007ffe84be1b28 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/3>>
+Redirected to http://localhost:3000/posts/3
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [db309aa8-3e3b-4a51-a853-9431a496c86e] Performing ActiveStorage::AnalyzeJob (Job ID: db309aa8-3e3b-4a51-a853-9431a496c86e) from Async(default) with arguments: #<GlobalID:0x00007ffe84bd0170 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/3>>
+Completed 302 Found in 90ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2018-11-11 01:39:40 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [db309aa8-3e3b-4a51-a853-9431a496c86e] [36m  Disk Storage (32.8ms) [0m[34mDownloaded file from key: qZy46qBdoo5h3XxCBgFVaLtB[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [db309aa8-3e3b-4a51-a853-9431a496c86e] Skipping video analysis because ffmpeg isn't installed
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[ActiveJob] [ActiveStorage::AnalyzeJob] [db309aa8-3e3b-4a51-a853-9431a496c86e]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [db309aa8-3e3b-4a51-a853-9431a496c86e]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [db309aa8-3e3b-4a51-a853-9431a496c86e]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [db309aa8-3e3b-4a51-a853-9431a496c86e]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [db309aa8-3e3b-4a51-a853-9431a496c86e]   [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [db309aa8-3e3b-4a51-a853-9431a496c86e]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [db309aa8-3e3b-4a51-a853-9431a496c86e] Performed ActiveStorage::AnalyzeJob (Job ID: db309aa8-3e3b-4a51-a853-9431a496c86e) from Async(default) in 54.46ms
+  Rendered posts/show.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 54ms (Views: 45.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1998a00177f272cad7a0b106610abd99693914a4/test.mp4" for 127.0.0.1 at 2018-11-11 01:39:40 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1998a00177f272cad7a0b106610abd99693914a4", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (1.6ms) [0m[34mGenerated URL for file at key: qZy46qBdoo5h3XxCBgFVaLtB (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF4V25rME5uRkNaRzl2TldneldIaERRbWRHVm1GTWRFSUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDQ6NDAuODM1WiIsInB1ciI6ImJsb2Jfa2V5In19--b3d52a573e24e001a2eb31aacfa7216add263019/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF4V25rME5uRkNaRzl2TldneldIaERRbWRHVm1GTWRFSUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDQ6NDAuODM1WiIsInB1ciI6ImJsb2Jfa2V5In19--b3d52a573e24e001a2eb31aacfa7216add263019/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF4V25rME5uRkNaRzl2TldneldIaERRbWRHVm1GTWRFSUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDQ6NDAuODM1WiIsInB1ciI6ImJsb2Jfa2V5In19--b3d52a573e24e001a2eb31aacfa7216add263019/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:39:40 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDF4V25rME5uRkNaRzl2TldneldIaERRbWRHVm1GTWRFSUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDQ6NDAuODM1WiIsInB1ciI6ImJsb2Jfa2V5In19--b3d52a573e24e001a2eb31aacfa7216add263019", "filename"=>"test"}
+[36m  Disk Storage (10.0ms) [0m[34mDownloaded file from key: qZy46qBdoo5h3XxCBgFVaLtB[0m
+Completed 200 OK in 12ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-11-11 01:42:16 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mV2pZDlH0WHw5TREf93EN1JlnTEww60o1gl5VN0uwx86KotOFlUUXYfwVNMiq5jVoZ/KvWoKeFs/qtMKtME4hw==", "post"=>{"title"=>"", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007ffe8486d0f0 @tempfile=#<Tempfile:/var/folders/tx/6k9dn6851554pl4b1jtvfsk00000gn/T/RackMultipart20181111-52681-2r72f2.mp4>, @original_filename="test.mp4", @content_type="video/mp4", @headers="Content-Disposition: form-data; name=\"post[video]\"; filename=\"test.mp4\"\r\nContent-Type: video/mp4\r\n">}, "commit"=>"Create Post"}
+[36m  Disk Storage (50.7ms) [0m[32mUploaded file to key: e5seee6iVo4nymJVzqfWGtG4 (checksum: yw78+xNZQh66iWSv3qvu1g==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "e5seee6iVo4nymJVzqfWGtG4"], ["filename", "test.mp4"], ["content_type", "video/mp4"], ["metadata", "{\"identified\":true}"], ["byte_size", 11745332], ["checksum", "yw78+xNZQh66iWSv3qvu1g=="], ["created_at", "2018-11-10 17:42:16.563489"]]
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Create (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", ""], ["created_at", "2018-11-10 17:42:16.569193"], ["updated_at", "2018-11-10 17:42:16.569193"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "video"], ["record_type", "Post"], ["record_id", 4], ["blob_id", 4], ["created_at", "2018-11-10 17:42:16.570763"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2018-11-10 17:42:16.572230"], ["id", 4]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: e06fd3ac-a32f-4755-bc30-29d69f3a0abe) to Async(default) with arguments: #<GlobalID:0x00007ffe82fc20f0 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/4>>
+Redirected to http://localhost:3000/posts/4
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 302 Found in 94ms (ActiveRecord: 4.4ms)
+
+
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e06fd3ac-a32f-4755-bc30-29d69f3a0abe] Performing ActiveStorage::AnalyzeJob (Job ID: e06fd3ac-a32f-4755-bc30-29d69f3a0abe) from Async(default) with arguments: #<GlobalID:0x00007ffe8499f860 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/4>>
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:42:16 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e06fd3ac-a32f-4755-bc30-29d69f3a0abe] [36m  Disk Storage (30.9ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+  ↳ app/views/posts/show.html.erb:11
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e06fd3ac-a32f-4755-bc30-29d69f3a0abe] Skipping video analysis because ffmpeg isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e06fd3ac-a32f-4755-bc30-29d69f3a0abe]   [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e06fd3ac-a32f-4755-bc30-29d69f3a0abe]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e06fd3ac-a32f-4755-bc30-29d69f3a0abe]   [1m[36mActiveStorage::Blob Update (0.4ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 4]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e06fd3ac-a32f-4755-bc30-29d69f3a0abe]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e06fd3ac-a32f-4755-bc30-29d69f3a0abe]   [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e06fd3ac-a32f-4755-bc30-29d69f3a0abe]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e06fd3ac-a32f-4755-bc30-29d69f3a0abe] Performed ActiveStorage::AnalyzeJob (Job ID: e06fd3ac-a32f-4755-bc30-29d69f3a0abe) from Async(default) in 51.27ms
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3161.9ms)
+Completed 200 OK in 3199ms (Views: 3193.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d/test.mp4" for 127.0.0.1 at 2018-11-11 01:42:19 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (4.1ms) [0m[34mGenerated URL for file at key: e5seee6iVo4nymJVzqfWGtG4 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDc6MTkuOTUzWiIsInB1ciI6ImJsb2Jfa2V5In19--bb7627afe158bcb83765345d601d32c21a777bfd/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDc6MTkuOTUzWiIsInB1ciI6ImJsb2Jfa2V5In19--bb7627afe158bcb83765345d601d32c21a777bfd/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDc6MTkuOTUzWiIsInB1ciI6ImJsb2Jfa2V5In19--bb7627afe158bcb83765345d601d32c21a777bfd/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:42:19 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NDc6MTkuOTUzWiIsInB1ciI6ImJsb2Jfa2V5In19--bb7627afe158bcb83765345d601d32c21a777bfd", "filename"=>"test"}
+[36m  Disk Storage (86.6ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 88ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:47:54 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3091.0ms)
+Completed 200 OK in 3135ms (Views: 3126.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d/test.mp4" for 127.0.0.1 at 2018-11-11 01:47:57 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: e5seee6iVo4nymJVzqfWGtG4 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTI6NTcuOTcyWiIsInB1ciI6ImJsb2Jfa2V5In19--ccfa6442ce456454936a3be6922b2cb21bdbd848/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTI6NTcuOTcyWiIsInB1ciI6ImJsb2Jfa2V5In19--ccfa6442ce456454936a3be6922b2cb21bdbd848/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTI6NTcuOTcyWiIsInB1ciI6ImJsb2Jfa2V5In19--ccfa6442ce456454936a3be6922b2cb21bdbd848/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:47:57 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTI6NTcuOTcyWiIsInB1ciI6ImJsb2Jfa2V5In19--ccfa6442ce456454936a3be6922b2cb21bdbd848", "filename"=>"test"}
+[36m  Disk Storage (19.3ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 20ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:48:29 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3038.3ms)
+Completed 200 OK in 3078ms (Views: 3072.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d/test.mp4" for 127.0.0.1 at 2018-11-11 01:48:32 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: e5seee6iVo4nymJVzqfWGtG4 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTM6MzIuNDA4WiIsInB1ciI6ImJsb2Jfa2V5In19--5bb78d0d36d34fcb1d7c05f7448759916f24d4f8/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTM6MzIuNDA4WiIsInB1ciI6ImJsb2Jfa2V5In19--5bb78d0d36d34fcb1d7c05f7448759916f24d4f8/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTM6MzIuNDA4WiIsInB1ciI6ImJsb2Jfa2V5In19--5bb78d0d36d34fcb1d7c05f7448759916f24d4f8/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:48:32 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTM6MzIuNDA4WiIsInB1ciI6ImJsb2Jfa2V5In19--5bb78d0d36d34fcb1d7c05f7448759916f24d4f8", "filename"=>"test"}
+[36m  Disk Storage (28.2ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 29ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:48:53 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (2070.6ms)
+Completed 200 OK in 2107ms (Views: 2098.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTM6MzIuNDA4WiIsInB1ciI6ImJsb2Jfa2V5In19--5bb78d0d36d34fcb1d7c05f7448759916f24d4f8/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:48:55 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTM6MzIuNDA4WiIsInB1ciI6ImJsb2Jfa2V5In19--5bb78d0d36d34fcb1d7c05f7448759916f24d4f8", "filename"=>"test"}
+[36m  Disk Storage (40.8ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 42ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:50:17 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3194.4ms)
+Completed 200 OK in 3234ms (Views: 3224.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTM6MzIuNDA4WiIsInB1ciI6ImJsb2Jfa2V5In19--5bb78d0d36d34fcb1d7c05f7448759916f24d4f8/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:50:21 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTM6MzIuNDA4WiIsInB1ciI6ImJsb2Jfa2V5In19--5bb78d0d36d34fcb1d7c05f7448759916f24d4f8", "filename"=>"test"}
+[36m  Disk Storage (56.0ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 57ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:53:50 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3791.4ms)
+Completed 200 OK in 3842ms (Views: 3833.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d/test.mp4" for 127.0.0.1 at 2018-11-11 01:53:54 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: e5seee6iVo4nymJVzqfWGtG4 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTg6NTQuODY0WiIsInB1ciI6ImJsb2Jfa2V5In19--228ee2953d3d62d0307e57c72cbe913942fa9832/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTg6NTQuODY0WiIsInB1ciI6ImJsb2Jfa2V5In19--228ee2953d3d62d0307e57c72cbe913942fa9832/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTg6NTQuODY0WiIsInB1ciI6ImJsb2Jfa2V5In19--228ee2953d3d62d0307e57c72cbe913942fa9832/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:53:54 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTc6NTg6NTQuODY0WiIsInB1ciI6ImJsb2Jfa2V5In19--228ee2953d3d62d0307e57c72cbe913942fa9832", "filename"=>"test"}
+[36m  Disk Storage (66.9ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 68ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:55:13 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3910.1ms)
+Completed 200 OK in 3943ms (Views: 3937.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d/test.mp4" for 127.0.0.1 at 2018-11-11 01:55:18 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.8ms) [0m[34mGenerated URL for file at key: e5seee6iVo4nymJVzqfWGtG4 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MDA6MTguMTA4WiIsInB1ciI6ImJsb2Jfa2V5In19--091a197df64d3788fc754dd67a2e4052b1e14b80/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MDA6MTguMTA4WiIsInB1ciI6ImJsb2Jfa2V5In19--091a197df64d3788fc754dd67a2e4052b1e14b80/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MDA6MTguMTA4WiIsInB1ciI6ImJsb2Jfa2V5In19--091a197df64d3788fc754dd67a2e4052b1e14b80/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:55:18 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MDA6MTguMTA4WiIsInB1ciI6ImJsb2Jfa2V5In19--091a197df64d3788fc754dd67a2e4052b1e14b80", "filename"=>"test"}
+[36m  Disk Storage (59.3ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 61ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MDA6MTguMTA4WiIsInB1ciI6ImJsb2Jfa2V5In19--091a197df64d3788fc754dd67a2e4052b1e14b80/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:56:10 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MDA6MTguMTA4WiIsInB1ciI6ImJsb2Jfa2V5In19--091a197df64d3788fc754dd67a2e4052b1e14b80", "filename"=>"test"}
+[36m  Disk Storage (38.6ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 42ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:57:04 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3301.5ms)
+Completed 200 OK in 3356ms (Views: 3349.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:57:21 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (1961.3ms)
+Completed 200 OK in 1999ms (Views: 1991.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:57:34 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 37ms (Views: 32.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:57:44 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (2978.8ms)
+Completed 200 OK in 3008ms (Views: 3003.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MDA6MTguMTA4WiIsInB1ciI6ImJsb2Jfa2V5In19--091a197df64d3788fc754dd67a2e4052b1e14b80/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:57:47 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MDA6MTguMTA4WiIsInB1ciI6ImJsb2Jfa2V5In19--091a197df64d3788fc754dd67a2e4052b1e14b80", "filename"=>"test"}
+[36m  Disk Storage (14.5ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 16ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:58:09 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3498.6ms)
+Completed 200 OK in 3555ms (Views: 3549.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MDA6MTguMTA4WiIsInB1ciI6ImJsb2Jfa2V5In19--091a197df64d3788fc754dd67a2e4052b1e14b80/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 01:58:13 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MDA6MTguMTA4WiIsInB1ciI6ImJsb2Jfa2V5In19--091a197df64d3788fc754dd67a2e4052b1e14b80", "filename"=>"test"}
+[36m  Disk Storage (29.3ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 30ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 01:59:28 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3311.2ms)
+Completed 200 OK in 3353ms (Views: 3347.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-11 02:12:59 +0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (5.4ms)
+Completed 200 OK in 26ms (Views: 10.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-11 02:13:05 +0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.2ms)
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-11-11 02:13:09 +0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (10.4ms)
+  Rendered posts/new.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 136ms (Views: 129.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-11-11 02:13:18 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hIx8nrOjQ6tVP4UA5gTtKmuGcu6Mk9BS1COdsuJF9cNuMSkNmA4+EUFpMHNkGZjNoRetARDaaw1P8ypP9fDKmg==", "post"=>{"title"=>"", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007ffe88fae428 @tempfile=#<Tempfile:/var/folders/tx/6k9dn6851554pl4b1jtvfsk00000gn/T/RackMultipart20181111-52681-hq84dz.mp4>, @original_filename="test.mp4", @content_type="video/mp4", @headers="Content-Disposition: form-data; name=\"post[video]\"; filename=\"test.mp4\"\r\nContent-Type: video/mp4\r\n">}, "commit"=>"Create Post"}
+[36m  Disk Storage (54.2ms) [0m[32mUploaded file to key: uG1cogqNoc9rbiZtqUXuaBHj (checksum: yw78+xNZQh66iWSv3qvu1g==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[36mActiveStorage::Blob Create (2.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "uG1cogqNoc9rbiZtqUXuaBHj"], ["filename", "test.mp4"], ["content_type", "video/mp4"], ["metadata", "{\"identified\":true}"], ["byte_size", 11745332], ["checksum", "yw78+xNZQh66iWSv3qvu1g=="], ["created_at", "2018-11-10 18:13:18.123029"]]
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", ""], ["created_at", "2018-11-10 18:13:18.133078"], ["updated_at", "2018-11-10 18:13:18.133078"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mActiveStorage::Attachment Create (0.9ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "video"], ["record_type", "Post"], ["record_id", 5], ["blob_id", 5], ["created_at", "2018-11-10 18:13:18.135393"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2018-11-10 18:13:18.137502"], ["id", 5]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: b0b264f7-5b79-479f-b535-78083c74b607) to Async(default) with arguments: #<GlobalID:0x00007ffe84bf3210 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/5>>
+Redirected to http://localhost:3000/posts/5
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 302 Found in 103ms (ActiveRecord: 7.7ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b0b264f7-5b79-479f-b535-78083c74b607] Performing ActiveStorage::AnalyzeJob (Job ID: b0b264f7-5b79-479f-b535-78083c74b607) from Async(default) with arguments: #<GlobalID:0x00007ffe84be0bd8 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/5>>
+Started GET "/posts/5" for 127.0.0.1 at 2018-11-11 02:13:18 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b0b264f7-5b79-479f-b535-78083c74b607] [36m  Disk Storage (18.7ms) [0m[34mDownloaded file from key: uG1cogqNoc9rbiZtqUXuaBHj[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b0b264f7-5b79-479f-b535-78083c74b607] Skipping video analysis because ffmpeg isn't installed
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 5], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b0b264f7-5b79-479f-b535-78083c74b607]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b0b264f7-5b79-479f-b535-78083c74b607]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b0b264f7-5b79-479f-b535-78083c74b607]   [1m[36mActiveStorage::Blob Update (0.5ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 5]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b0b264f7-5b79-479f-b535-78083c74b607]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  ↳ app/views/posts/show.html.erb:11
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b0b264f7-5b79-479f-b535-78083c74b607]   [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b0b264f7-5b79-479f-b535-78083c74b607]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [b0b264f7-5b79-479f-b535-78083c74b607] Performed ActiveStorage::AnalyzeJob (Job ID: b0b264f7-5b79-479f-b535-78083c74b607) from Async(default) in 55.79ms
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3602.9ms)
+Completed 200 OK in 3658ms (Views: 3653.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f5e2297bf459db7654469b64791a429fac68d094/test.mp4" for 127.0.0.1 at 2018-11-11 02:13:22 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f5e2297bf459db7654469b64791a429fac68d094", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: uG1cogqNoc9rbiZtqUXuaBHj (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDExUnpGamIyZHhUbTlqT1hKaWFWcDBjVlZZZFdGQ1NHb0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MTg6MjIuMDE1WiIsInB1ciI6ImJsb2Jfa2V5In19--1560542598373c9178fde3eb2d53ad6fb50c8808/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDExUnpGamIyZHhUbTlqT1hKaWFWcDBjVlZZZFdGQ1NHb0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MTg6MjIuMDE1WiIsInB1ciI6ImJsb2Jfa2V5In19--1560542598373c9178fde3eb2d53ad6fb50c8808/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDExUnpGamIyZHhUbTlqT1hKaWFWcDBjVlZZZFdGQ1NHb0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MTg6MjIuMDE1WiIsInB1ciI6ImJsb2Jfa2V5In19--1560542598373c9178fde3eb2d53ad6fb50c8808/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 02:13:22 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDExUnpGamIyZHhUbTlqT1hKaWFWcDBjVlZZZFdGQ1NHb0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MTg6MjIuMDE1WiIsInB1ciI6ImJsb2Jfa2V5In19--1560542598373c9178fde3eb2d53ad6fb50c8808", "filename"=>"test"}
+[36m  Disk Storage (6.6ms) [0m[34mDownloaded file from key: uG1cogqNoc9rbiZtqUXuaBHj[0m
+Completed 200 OK in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-11-11 02:13:41 +0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (1.9ms)
+  Rendered posts/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 39ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-11-11 02:13:49 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YsViEYEUAkEJrpfGOo6BQzBXgm+NThxjlLAMxiE99/cNFce0IaozHBfaTxpA/t5oiHu82D1T5V8NzOLrP0xLtw==", "post"=>{"title"=>"", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007ffe89a49590 @tempfile=#<Tempfile:/var/folders/tx/6k9dn6851554pl4b1jtvfsk00000gn/T/RackMultipart20181111-52681-15mp5tl.mp4>, @original_filename="test.mp4", @content_type="video/mp4", @headers="Content-Disposition: form-data; name=\"post[video]\"; filename=\"test.mp4\"\r\nContent-Type: video/mp4\r\n">}, "commit"=>"Create Post"}
+[36m  Disk Storage (51.6ms) [0m[32mUploaded file to key: Z6fsNoPxtREUg3USRMfp3qtw (checksum: yw78+xNZQh66iWSv3qvu1g==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "Z6fsNoPxtREUg3USRMfp3qtw"], ["filename", "test.mp4"], ["content_type", "video/mp4"], ["metadata", "{\"identified\":true}"], ["byte_size", 11745332], ["checksum", "yw78+xNZQh66iWSv3qvu1g=="], ["created_at", "2018-11-10 18:13:49.447928"]]
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", ""], ["created_at", "2018-11-10 18:13:49.453925"], ["updated_at", "2018-11-10 18:13:49.453925"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "video"], ["record_type", "Post"], ["record_id", 6], ["blob_id", 6], ["created_at", "2018-11-10 18:13:49.456275"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2018-11-10 18:13:49.457836"], ["id", 6]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 47358556-f9be-4145-807e-5110fd4b4c48) to Async(default) with arguments: #<GlobalID:0x00007ffe82e81b78 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/6>>
+Redirected to http://localhost:3000/posts/6
+Completed 302 Found in 100ms (ActiveRecord: 4.8ms)
+
+
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [47358556-f9be-4145-807e-5110fd4b4c48] Performing ActiveStorage::AnalyzeJob (Job ID: 47358556-f9be-4145-807e-5110fd4b4c48) from Async(default) with arguments: #<GlobalID:0x00007ffe82fa11e8 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/6>>
+Started GET "/posts/6" for 127.0.0.1 at 2018-11-11 02:13:49 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 6], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[ActiveJob] [ActiveStorage::AnalyzeJob] [47358556-f9be-4145-807e-5110fd4b4c48] [36m  Disk Storage (21.5ms) [0m[34mDownloaded file from key: Z6fsNoPxtREUg3USRMfp3qtw[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [47358556-f9be-4145-807e-5110fd4b4c48] Skipping video analysis because ffmpeg isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [47358556-f9be-4145-807e-5110fd4b4c48]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [47358556-f9be-4145-807e-5110fd4b4c48]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [47358556-f9be-4145-807e-5110fd4b4c48]   [1m[36mActiveStorage::Blob Update (0.4ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 6]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [47358556-f9be-4145-807e-5110fd4b4c48]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [47358556-f9be-4145-807e-5110fd4b4c48]   [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [47358556-f9be-4145-807e-5110fd4b4c48]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [47358556-f9be-4145-807e-5110fd4b4c48] Performed ActiveStorage::AnalyzeJob (Job ID: 47358556-f9be-4145-807e-5110fd4b4c48) from Async(default) in 38.7ms
+  Rendered posts/show.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 52ms (Views: 48.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c05c906a7498b73ff0adeb58c90b871253b1689/test.mp4" for 127.0.0.1 at 2018-11-11 02:13:49 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2c05c906a7498b73ff0adeb58c90b871253b1689", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: Z6fsNoPxtREUg3USRMfp3qtw (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFhTm1aelRtOVFlSFJTUlZWbk0xVlRVazFtY0ROeGRIY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MTg6NDkuNTk4WiIsInB1ciI6ImJsb2Jfa2V5In19--73af4734bd92b8a0cdd0580141b647ba45ca5964/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFhTm1aelRtOVFlSFJTUlZWbk0xVlRVazFtY0ROeGRIY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MTg6NDkuNTk4WiIsInB1ciI6ImJsb2Jfa2V5In19--73af4734bd92b8a0cdd0580141b647ba45ca5964/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFhTm1aelRtOVFlSFJTUlZWbk0xVlRVazFtY0ROeGRIY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MTg6NDkuNTk4WiIsInB1ciI6ImJsb2Jfa2V5In19--73af4734bd92b8a0cdd0580141b647ba45ca5964/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 02:13:49 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFhTm1aelRtOVFlSFJTUlZWbk0xVlRVazFtY0ROeGRIY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MTg6NDkuNTk4WiIsInB1ciI6ImJsb2Jfa2V5In19--73af4734bd92b8a0cdd0580141b647ba45ca5964", "filename"=>"test"}
+[36m  Disk Storage (8.0ms) [0m[34mDownloaded file from key: Z6fsNoPxtREUg3USRMfp3qtw[0m
+Completed 200 OK in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-11-11 02:19:05 +0800
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (14.5ms)
+  Rendered posts/new.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 115ms (Views: 102.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-11-11 02:19:17 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vJGXsI2VqsGt3Nn3dzzoGNlutsXuKrYjqQJ6WSA72cgBvWCmT7UVlUaplcUHf2HZwueYwzgYCp1ugyXpZhoa/A==", "post"=>{"title"=>"", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007ffe88fbca50 @tempfile=#<Tempfile:/var/folders/tx/6k9dn6851554pl4b1jtvfsk00000gn/T/RackMultipart20181111-52681-wn0osx.mp4>, @original_filename="test.mp4", @content_type="video/mp4", @headers="Content-Disposition: form-data; name=\"post[video]\"; filename=\"test.mp4\"\r\nContent-Type: video/mp4\r\n">}, "commit"=>"Create Post"}
+[36m  Disk Storage (49.9ms) [0m[32mUploaded file to key: yguhM1Yewbw9qzdt9kNRGrgw (checksum: yw78+xNZQh66iWSv3qvu1g==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[36mActiveStorage::Blob Create (1.5ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "yguhM1Yewbw9qzdt9kNRGrgw"], ["filename", "test.mp4"], ["content_type", "video/mp4"], ["metadata", "{\"identified\":true}"], ["byte_size", 11745332], ["checksum", "yw78+xNZQh66iWSv3qvu1g=="], ["created_at", "2018-11-10 18:19:17.185615"]]
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", ""], ["created_at", "2018-11-10 18:19:17.194083"], ["updated_at", "2018-11-10 18:19:17.194083"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "video"], ["record_type", "Post"], ["record_id", 7], ["blob_id", 7], ["created_at", "2018-11-10 18:19:17.195832"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Update (0.1ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2018-11-10 18:19:17.197098"], ["id", 7]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 8b9dd177-b777-4c77-b59a-346dc39b363c) to Async(default) with arguments: #<GlobalID:0x00007ffe84c082a0 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/7>>
+Redirected to http://localhost:3000/posts/7
+Completed 302 Found in 95ms (ActiveRecord: 5.5ms)
+
+
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8b9dd177-b777-4c77-b59a-346dc39b363c] Performing ActiveStorage::AnalyzeJob (Job ID: 8b9dd177-b777-4c77-b59a-346dc39b363c) from Async(default) with arguments: #<GlobalID:0x00007ffe84be8860 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/7>>
+Started GET "/posts/7" for 127.0.0.1 at 2018-11-11 02:19:17 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8b9dd177-b777-4c77-b59a-346dc39b363c] [36m  Disk Storage (26.3ms) [0m[34mDownloaded file from key: yguhM1Yewbw9qzdt9kNRGrgw[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8b9dd177-b777-4c77-b59a-346dc39b363c] Skipping video analysis because ffmpeg isn't installed
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8b9dd177-b777-4c77-b59a-346dc39b363c]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/views/posts/show.html.erb:11
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8b9dd177-b777-4c77-b59a-346dc39b363c]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8b9dd177-b777-4c77-b59a-346dc39b363c]   [1m[36mActiveStorage::Blob Update (0.8ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 7]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8b9dd177-b777-4c77-b59a-346dc39b363c]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8b9dd177-b777-4c77-b59a-346dc39b363c]   [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8b9dd177-b777-4c77-b59a-346dc39b363c]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [8b9dd177-b777-4c77-b59a-346dc39b363c] Performed ActiveStorage::AnalyzeJob (Job ID: 8b9dd177-b777-4c77-b59a-346dc39b363c) from Async(default) in 52.02ms
+  Rendered posts/show.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 65ms (Views: 52.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--65e34faad59b250585f2e327adada9aa87761b79/test.mp4" for 127.0.0.1 at 2018-11-11 02:19:17 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--65e34faad59b250585f2e327adada9aa87761b79", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (1.6ms) [0m[34mGenerated URL for file at key: yguhM1Yewbw9qzdt9kNRGrgw (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDE1WjNWb1RURlpaWGRpZHpseGVtUjBPV3RPVWtkeVozY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjQ6MTcuNDY0WiIsInB1ciI6ImJsb2Jfa2V5In19--d3d63ae603d0e393f6b9ba268e12fa580b305fa1/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDE1WjNWb1RURlpaWGRpZHpseGVtUjBPV3RPVWtkeVozY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjQ6MTcuNDY0WiIsInB1ciI6ImJsb2Jfa2V5In19--d3d63ae603d0e393f6b9ba268e12fa580b305fa1/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDE1WjNWb1RURlpaWGRpZHpseGVtUjBPV3RPVWtkeVozY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjQ6MTcuNDY0WiIsInB1ciI6ImJsb2Jfa2V5In19--d3d63ae603d0e393f6b9ba268e12fa580b305fa1/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 02:19:17 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDE1WjNWb1RURlpaWGRpZHpseGVtUjBPV3RPVWtkeVozY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjQ6MTcuNDY0WiIsInB1ciI6ImJsb2Jfa2V5In19--d3d63ae603d0e393f6b9ba268e12fa580b305fa1", "filename"=>"test"}
+[36m  Disk Storage (17.5ms) [0m[34mDownloaded file from key: yguhM1Yewbw9qzdt9kNRGrgw[0m
+Completed 200 OK in 19ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2018-11-11 02:20:01 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (4656.3ms)
+Completed 200 OK in 4723ms (Views: 4704.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 02:20:55 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (3171.7ms)
+Completed 200 OK in 3207ms (Views: 3202.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d/test.mp4" for 127.0.0.1 at 2018-11-11 02:20:59 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (3.1ms) [0m[34mGenerated URL for file at key: e5seee6iVo4nymJVzqfWGtG4 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjU6NTkuMjE2WiIsInB1ciI6ImJsb2Jfa2V5In19--a82ca3e35620b6aaaad596e7b44a5f51e19df998/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjU6NTkuMjE2WiIsInB1ciI6ImJsb2Jfa2V5In19--a82ca3e35620b6aaaad596e7b44a5f51e19df998/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 11ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjU6NTkuMjE2WiIsInB1ciI6ImJsb2Jfa2V5In19--a82ca3e35620b6aaaad596e7b44a5f51e19df998/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 02:20:59 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjU6NTkuMjE2WiIsInB1ciI6ImJsb2Jfa2V5In19--a82ca3e35620b6aaaad596e7b44a5f51e19df998", "filename"=>"test"}
+[36m  Disk Storage (230.0ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 231ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/7" for 127.0.0.1 at 2018-11-11 02:21:11 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 7], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 53ms (Views: 49.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--65e34faad59b250585f2e327adada9aa87761b79/test.mp4" for 127.0.0.1 at 2018-11-11 02:21:12 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--65e34faad59b250585f2e327adada9aa87761b79", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: yguhM1Yewbw9qzdt9kNRGrgw (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDE1WjNWb1RURlpaWGRpZHpseGVtUjBPV3RPVWtkeVozY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjY6MTIuMTg0WiIsInB1ciI6ImJsb2Jfa2V5In19--10a829d6ded6ddea64d058841a3996f6d9e11410/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDE1WjNWb1RURlpaWGRpZHpseGVtUjBPV3RPVWtkeVozY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjY6MTIuMTg0WiIsInB1ciI6ImJsb2Jfa2V5In19--10a829d6ded6ddea64d058841a3996f6d9e11410/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDE1WjNWb1RURlpaWGRpZHpseGVtUjBPV3RPVWtkeVozY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjY6MTIuMTg0WiIsInB1ciI6ImJsb2Jfa2V5In19--10a829d6ded6ddea64d058841a3996f6d9e11410/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 02:21:12 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDE1WjNWb1RURlpaWGRpZHpseGVtUjBPV3RPVWtkeVozY0dPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6MjY6MTIuMTg0WiIsInB1ciI6ImJsb2Jfa2V5In19--10a829d6ded6ddea64d058841a3996f6d9e11410", "filename"=>"test"}
+[36m  Disk Storage (13.8ms) [0m[34mDownloaded file from key: yguhM1Yewbw9qzdt9kNRGrgw[0m
+Completed 200 OK in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-11 02:36:15 +0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (6.4ms)
+Completed 200 OK in 28ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2018-11-11 02:40:28 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.9ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/chuyan/Desktop/cant_seek-master/public/packs
+  Rendered posts/show.html.erb within layouts/application (4643.3ms)
+Completed 200 OK in 4707ms (Views: 4695.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d/test.mp4" for 127.0.0.1 at 2018-11-11 02:40:33 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e410c4ea713fbe513712b19aa0cb07434358bd1d", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (1.8ms) [0m[34mGenerated URL for file at key: e5seee6iVo4nymJVzqfWGtG4 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6NDU6MzMuNzc5WiIsInB1ciI6ImJsb2Jfa2V5In19--ccfc3830fda657a58517f71e6a251c62ff9dcc40/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6NDU6MzMuNzc5WiIsInB1ciI6ImJsb2Jfa2V5In19--ccfc3830fda657a58517f71e6a251c62ff9dcc40/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6NDU6MzMuNzc5WiIsInB1ciI6ImJsb2Jfa2V5In19--ccfc3830fda657a58517f71e6a251c62ff9dcc40/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-11 02:40:33 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFsTlhObFpXVTJhVlp2Tkc1NWJVcFdlbkZtVjBkMFJ6UUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTBUMTg6NDU6MzMuNzc5WiIsInB1ciI6ImJsb2Jfa2V5In19--ccfc3830fda657a58517f71e6a251c62ff9dcc40", "filename"=>"test"}
+[36m  Disk Storage (14.3ms) [0m[34mDownloaded file from key: e5seee6iVo4nymJVzqfWGtG4[0m
+Completed 200 OK in 16ms (ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/posts/new" for 127.0.0.1 at 2018-11-12 12:08:46 +0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (19.1ms)
+  Rendered posts/new.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 1432ms (Views: 1402.2ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-11-12 12:08:57 +0800
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y7HA6FWbLkw/03wdQU/c1k9wc0cTkgo7Moott3L+EMzAxuLCeonrcEjGHIocOYA0vIoky0lb30jbKYfpGxHrVA==", "post"=>{"title"=>"", "video"=>#<ActionDispatch::Http::UploadedFile:0x00007fd797dd5470 @tempfile=#<Tempfile:/var/folders/tx/6k9dn6851554pl4b1jtvfsk00000gn/T/RackMultipart20181112-55110-1gobvtk.mp4>, @original_filename="test.mp4", @content_type="video/mp4", @headers="Content-Disposition: form-data; name=\"post[video]\"; filename=\"test.mp4\"\r\nContent-Type: video/mp4\r\n">}, "commit"=>"Create Post"}
+[36m  Disk Storage (48.1ms) [0m[32mUploaded file to key: B7gvwP99gpeETXnvcMb9kS4E (checksum: yw78+xNZQh66iWSv3qvu1g==)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[36mActiveStorage::Blob Create (2.0ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["key", "B7gvwP99gpeETXnvcMb9kS4E"], ["filename", "test.mp4"], ["content_type", "video/mp4"], ["metadata", "{\"identified\":true}"], ["byte_size", 11745332], ["checksum", "yw78+xNZQh66iWSv3qvu1g=="], ["created_at", "2018-11-12 04:08:57.438978"]]
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:27
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", ""], ["created_at", "2018-11-12 04:08:57.456182"], ["updated_at", "2018-11-12 04:08:57.456182"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mActiveStorage::Attachment Create (1.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "video"], ["record_type", "Post"], ["record_id", 8], ["blob_id", 8], ["created_at", "2018-11-12 04:08:57.458638"]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[36mPost Update (0.3ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2018-11-12 04:08:57.461875"], ["id", 8]]
+  ↳ app/controllers/posts_controller.rb:30
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:30
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 0373a42d-c087-4afb-b2c9-305d47ae8bfb) to Async(default) with arguments: #<GlobalID:0x00007fd798d62ff0 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/8>>
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts/8
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Completed 302 Found in 196ms (ActiveRecord: 9.4ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0373a42d-c087-4afb-b2c9-305d47ae8bfb] Performing ActiveStorage::AnalyzeJob (Job ID: 0373a42d-c087-4afb-b2c9-305d47ae8bfb) from Async(default) with arguments: #<GlobalID:0x00007fd798d016d8 @uri=#<URI::GID gid://cant-seek/ActiveStorage::Blob/8>>
+Started GET "/posts/8" for 127.0.0.1 at 2018-11-12 12:08:57 +0800
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:67
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0373a42d-c087-4afb-b2c9-305d47ae8bfb] [36m  Disk Storage (37.8ms) [0m[34mDownloaded file from key: B7gvwP99gpeETXnvcMb9kS4E[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0373a42d-c087-4afb-b2c9-305d47ae8bfb] Skipping video analysis because ffmpeg isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0373a42d-c087-4afb-b2c9-305d47ae8bfb]   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0373a42d-c087-4afb-b2c9-305d47ae8bfb]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0373a42d-c087-4afb-b2c9-305d47ae8bfb]   [1m[36mActiveStorage::Blob Update (0.4ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 8]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0373a42d-c087-4afb-b2c9-305d47ae8bfb]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0373a42d-c087-4afb-b2c9-305d47ae8bfb]   [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0373a42d-c087-4afb-b2c9-305d47ae8bfb]   ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[ActiveJob] [ActiveStorage::AnalyzeJob] [0373a42d-c087-4afb-b2c9-305d47ae8bfb] Performed ActiveStorage::AnalyzeJob (Job ID: 0373a42d-c087-4afb-b2c9-305d47ae8bfb) from Async(default) in 58.28ms
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 8], ["record_type", "Post"], ["name", "video"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:11
+  Rendered posts/show.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 89ms (Views: 64.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9cb148314c1ccf091b9c1f4758e6ad384236453c/test.mp4" for 127.0.0.1 at 2018-11-12 12:08:58 +0800
+Processing by ActiveStorage::BlobsController#show as MP4
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9cb148314c1ccf091b9c1f4758e6ad384236453c", "filename"=>"test"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ /Users/chuyan/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+[36m  Disk Storage (2.4ms) [0m[34mGenerated URL for file at key: B7gvwP99gpeETXnvcMb9kS4E (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFDTjJkMmQxQTVPV2R3WlVWVVdHNTJZMDFpT1d0VE5FVUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTJUMDQ6MTM6NTguMDI2WiIsInB1ciI6ImJsb2Jfa2V5In19--2a2f797ae0b44c6217e5f163c0aa63cdae06a078/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFDTjJkMmQxQTVPV2R3WlVWVVdHNTJZMDFpT1d0VE5FVUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTJUMDQ6MTM6NTguMDI2WiIsInB1ciI6ImJsb2Jfa2V5In19--2a2f797ae0b44c6217e5f163c0aa63cdae06a078/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFDTjJkMmQxQTVPV2R3WlVWVVdHNTJZMDFpT1d0VE5FVUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTJUMDQ6MTM6NTguMDI2WiIsInB1ciI6ImJsb2Jfa2V5In19--2a2f797ae0b44c6217e5f163c0aa63cdae06a078/test.mp4?content_type=video%2Fmp4&disposition=inline%3B+filename%3D%22test.mp4%22%3B+filename%2A%3DUTF-8%27%27test.mp4" for 127.0.0.1 at 2018-11-12 12:08:58 +0800
+Processing by ActiveStorage::DiskController#show as MP4
+  Parameters: {"content_type"=>"video/mp4", "disposition"=>"inline; filename=\"test.mp4\"; filename*=UTF-8''test.mp4", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDFDTjJkMmQxQTVPV2R3WlVWVVdHNTJZMDFpT1d0VE5FVUdPZ1pGVkE9PSIsImV4cCI6IjIwMTgtMTEtMTJUMDQ6MTM6NTguMDI2WiIsInB1ciI6ImJsb2Jfa2V5In19--2a2f797ae0b44c6217e5f163c0aa63cdae06a078", "filename"=>"test"}
+[36m  Disk Storage (17.4ms) [0m[34mDownloaded file from key: B7gvwP99gpeETXnvcMb9kS4E[0m
+Completed 200 OK in 19ms (ActiveRecord: 0.0ms)
+
+
