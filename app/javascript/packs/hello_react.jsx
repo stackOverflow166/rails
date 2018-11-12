@@ -29,7 +29,7 @@ class App extends React.Component {
     return (
       <div>
         <video ref={this.videoRef} controls>
-          <source src={"http://www.rails.file.iwctcy.cn"+ url} type='video/mp4' />
+          <source src={"https://localhost:3000"+ url} type='video/mp4' />
         </video>
         <button onClick={ () => this.seek(5) }>+5</button>
         <button onClick={ () => this.play() }>Play</button>
