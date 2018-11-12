@@ -8,6 +8,8 @@ import ReactDOM from 'react-dom'
 const node = document.getElementById('payload')
 const url = JSON.parse(node.getAttribute('url'))
 
+
+
 class App extends React.Component {
 
   componentWillMount() {
@@ -16,9 +18,7 @@ class App extends React.Component {
   }
 
   seek = (seekTo = 0) => {
-      // this.videoRef.current.currentTime = 7
-    const nowTime = this.videoRef.current.currentTime
-      this.videoRef.current.currentTime = nowTime + seekTo
+    this.videoRef.current.currentTime = 7
   }
 
   play = () => {
@@ -31,8 +31,8 @@ class App extends React.Component {
         <video ref={this.videoRef} controls>
           <source src={url} type='video/mp4' />
         </video>
-        <button onClick={ (e) => {this.seek(5)} }>+5</button>
-        <button onClick={ (e) => {this.play()} }>Play</button>
+        <button onClick={ () => this.seek(5) }>+5</button>
+        <button onClick={ () => this.play() }>Play</button>
       </div>
     )
   }
